@@ -2,8 +2,11 @@ define(['jquery'], function ( $ ) {
 
     /**
      * A shape interface that uses Raphael to create a SVG canvas on which you can render
-     * any SVG shape. Extend Shape with your own shape constructors and implement a
-     * _createShape method that creates the shape you want.
+     * any SVG shape. Extend BaseShape with your own shape constructors and implement a
+     * _createShape and method that creates the shape you want and a _calculateArea method
+     * that calculates its area. You need to supply your extended constructor with a number
+     * that defines the amount of distances you need for your shape, these distances will
+     * then be added to your object by the constructor
      *
      * @constructor
      */
@@ -72,12 +75,20 @@ define(['jquery'], function ( $ ) {
     return {
         extend: function ( sizeRequestAmount ) {
             var Shape = function ( size ) {
+
+                if(!this._calculateArea) {
+                    throw new Error('Shapes extending from BaseShape need to implement a _calculateArea method.');
+                }
+
+                if(!this._createShape) {
+                    throw new Error('Shapes extending from BaseShape need to implement a _createShape method.');
+                }
+
                 this.x = size[0];
                 this.y = size[1];
                 this.area = this._calculateArea();
-
-                console.log('SHAPE', this);
             };
+
             Shape.prototype = new BaseShape();
             Shape.prototype.constructor = Shape;
             Shape.prototype.sizeRequestAmount = sizeRequestAmount;

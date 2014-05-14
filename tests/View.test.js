@@ -59,7 +59,6 @@ define(['../js/View', '../js/StatModel', 'handlebars'], function ( View, StatMod
 
             ok(view.model, 'Model was bound');
             ok(view.render.calledOnce, 'Re-render was triggered');
-
         });
 
     };

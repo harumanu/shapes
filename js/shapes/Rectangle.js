@@ -1,12 +1,6 @@
 define(['jquery', 'shapes/Shape', 'raphael'], function ( $, Shape, Raphael ) {
 
     var Rectangle = Shape.extend( 2 );
-    /*
-    var Rectangle = MakeShape(function ( size ) {
-        this.width = size[0];
-        this.height = size[1];
-        this.area = this._calculateArea();
-    });*/
 
     Rectangle.prototype._createShape = function () {
         var displayWidth = this.x * 80;

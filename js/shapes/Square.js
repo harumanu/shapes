@@ -1,10 +1,6 @@
 define(['jquery', 'shapes/Shape', 'raphael'], function ( $, Shape, Raphael ) {
 
     var Square = Shape.extend( 1 );
-    /*var Square = MakeShape(function ( size ) {
-        this.width = size[0];
-        this.area = this._calculateArea();
-    });*/
 
     Square.prototype._createShape = function () {
         var displayWidth = this.x * 100;

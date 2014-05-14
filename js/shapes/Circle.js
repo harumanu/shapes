@@ -2,11 +2,6 @@ define(['jquery', 'shapes/Shape', 'raphael'], function ( $, Shape, Raphael ) {
 
     var Circle = Shape.extend( 1 );
 
-    /*var Circle = Shape.extend(function ( size ) {
-        this.radius = size[0];
-        this.area = this._calculateArea();
-    });*/
-
     Circle.prototype._createShape = function () {
         var displayRadius = this.x * 40;
         var center = this._getCanvasCenter();

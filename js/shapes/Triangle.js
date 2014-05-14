@@ -2,11 +2,6 @@ define(['jquery', 'shapes/Shape', 'raphael'], function ( $, Shape, Raphael ) {
 
     var Triangle = Shape.extend( 1 );
 
-    /*var Triangle = MakeShape(function ( size ) {
-        this.width = size[0];
-        this.area = this._calculateArea();
-    });*/
-
     Triangle.prototype._createShape = function () {
         var displayWidth = this.x * 80;
         var displayHeight = Math.sqrt(3) / 2 * displayWidth;
