@@ -16,7 +16,7 @@ define(['jquery', 'shapes/Shape', 'raphael'], function ( $, Shape, Raphael ) {
     };
 
     Square.prototype._calculateArea = function () {
-        return this.x * 2;
+        return this.x * this.x;
     };
 
     return Square;

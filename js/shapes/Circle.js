@@ -11,7 +11,7 @@ define(['jquery', 'shapes/Shape', 'raphael'], function ( $, Shape, Raphael ) {
     };
 
     Circle.prototype._calculateArea = function () {
-        return (2 * this.x * Math.PI);
+        return (Math.PI * this.x * this.x);
     };
 
     return Circle;

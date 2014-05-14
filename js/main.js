@@ -76,7 +76,7 @@ require([
             }
 
             //If we don't already have a spinner we create one
-            var opts = {
+            this.spinner = new Spinner({
                 lines: 10,
                 length: 11,
                 width: 4,
@@ -84,9 +84,7 @@ require([
                 color: '#CCC',
                 speed: 2,
                 trail: 90
-            };
-
-            this.spinner = new Spinner(opts).spin(viewport);
+            }).spin(viewport);
         },
 
         /**
