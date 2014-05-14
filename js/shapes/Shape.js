@@ -3,7 +3,7 @@ define(['jquery'], function ( $ ) {
     /**
      * A shape interface that uses Raphael to create a SVG canvas on which you can render
      * any SVG shape. Extend BaseShape with your own shape constructors and implement a
-     * _createShape and method that creates the shape you want and a _calculateArea method
+     * _renderShape and method that creates the shape you want and a _calculateArea method
      * that calculates its area. You need to supply your extended constructor with a number
      * that defines the amount of distances you need for your shape, these distances will
      * then be added to your object by the constructor
@@ -23,14 +23,14 @@ define(['jquery'], function ( $ ) {
 
     /**
      * Public render function, this render function is shared by all shapes
-     * and requires a custom _createShape method to have been implemented
+     * and requires a custom _renderShape method to have been implemented
      * on any shape that extends from BaseShape. The render method takes
      * a DOM element as an argument, which will be used for creating the
      * SVG context that we render on.
      */
     BaseShape.prototype.render = function ( el ) {
         this._createCanvas( el );
-        this._createShape();
+        this._renderShape();
         this.shape.attr('stroke', '#F00');
         this.shape.attr('stroke-width', 3);
         return this;
@@ -48,10 +48,11 @@ define(['jquery'], function ( $ ) {
         };
     };
 
-    /*
+    /**
     * Renders SVG text anywhere on the canvas.
+    * @private
     */
-    BaseShape.prototype.renderText = function (x, y, text, size) {
+    BaseShape.prototype._renderText = function (x, y, text, size) {
         this.canvas.text(x, y, text)
             .attr({
                 'fill': '#EEE',
@@ -61,10 +62,11 @@ define(['jquery'], function ( $ ) {
 
     /*
     * Utility function for rendering the text at the exact center of the canvas.
+    * @private
     */
     BaseShape.prototype._renderCenterText = function ( text ) {
         var center = this._getCanvasCenter();
-        this.renderText(center.x, center.y, text, 16);
+        this._renderText(center.x, center.y, text, 16);
     };
 
 
@@ -80,8 +82,8 @@ define(['jquery'], function ( $ ) {
                     throw new Error('Shapes extending from BaseShape need to implement a _calculateArea method.');
                 }
 
-                if(!this._createShape) {
-                    throw new Error('Shapes extending from BaseShape need to implement a _createShape method.');
+                if(!this._renderShape) {
+                    throw new Error('Shapes extending from BaseShape need to implement a _renderShape method.');
                 }
 
                 this.x = size[0];
