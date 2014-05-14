@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shapes</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+</head>
+<body>
+
+<script type="text/html" id="statViewTemplate">
+        <h3>{{name}}</h3>
+        <div class="amount">{{amountGenerated}}</div>
+        <div class="average">{{averageArea}} m<sup>2</sup></div>
+        <div class="latest">{{latestArea}} m<sup>2</sup></div>
+</script>
+
+<script type="text/html" id="menuTemplate">
+    <p>&#x25BE; Click to generate</p>
+    {{#each items}}
+        <li data-shape="{{id}}">{{name}}</li>
+    {{/each}}
+</script>
+<div id="main">
+    <ul id="shape-selector">
+
+    </ul>
+    <div id="viewport">
+        <div id="board"></div>
+    </div>
+    <div id="stats">
+        <div class="stat">
+            <h3></h3>
+            <div>Generated:</div>
+            <div>Average area:</div>
+            <div>Latest:</div>
+        </div>
+    </div>
+</div>
+<script src="js/api.js"></script>
+<script data-main="js/main" src="js/libs/require/require.js"></script>
+</body>
+</html>
