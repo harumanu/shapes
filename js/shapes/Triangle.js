@@ -1,5 +1,5 @@
 define(['jquery', 'shapes/Shape', 'raphael'], function ( $, Shape, Raphael ) {
-
+    'use strict';
     var Triangle = Shape.extend( 1 );
 
     Triangle.prototype._createShape = function () {

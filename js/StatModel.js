@@ -3,7 +3,7 @@
  * @module StateModel
  */
 define(function () {
-
+    'use strict';
     /**
      *
      * @param name {string} The name of the shape

@@ -4,6 +4,7 @@
  * @module View
  */
 define(['jquery', 'handlebars'], function ( $, Handlebars ) {
+    'use strict';
     /**
      *
      * @param options.template {String} A html ID string referring to a template on the page,

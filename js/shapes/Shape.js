@@ -1,5 +1,5 @@
 define(['jquery'], function ( $ ) {
-
+    'use strict';
     /**
      * A shape interface that uses Raphael to create a SVG canvas on which you can render
      * any SVG shape. Extend BaseShape with your own shape constructors and implement a
